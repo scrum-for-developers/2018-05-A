@@ -21,6 +21,7 @@ public class Book implements Serializable {
 	private String title;
 	private String author;
 	private String edition;
+	private String description;
 
 	// TODO: convert String to an ISBN class, that ensures a valid ISBN
 	private String isbn;
@@ -54,12 +55,14 @@ public class Book implements Serializable {
 				@Nonnull String author,
 				@Nonnull String edition,
 				@Nonnull String isbn,
+				String description, 
 				int yearOfPublication) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
 		this.isbn = isbn;
+		this.description = description;
 		this.yearOfPublication = yearOfPublication;
 	}
 
@@ -117,6 +120,14 @@ public class Book implements Serializable {
         }
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public String toString() {
 		return "Book{" +
@@ -124,6 +135,7 @@ public class Book implements Serializable {
 				", author='" + author + '\'' +
 				", edition='" + edition + '\'' +
 				", isbn='" + isbn + '\'' +
+				", description='" + description + '\'' +
 				", yearOfPublication=" + yearOfPublication +
 				'}';
 	}

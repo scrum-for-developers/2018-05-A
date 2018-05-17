@@ -42,7 +42,7 @@ public class Library {
 	public void createLibraryWithSingleBookWithGivenIsbn(String isbn){
 		Book book = DemoBookFactory.createDemoBook().withISBN(isbn).build();
 		bookService.createBook(book.getTitle(), book.getAuthor(), book.getEdition(),
-				isbn, book.getYearOfPublication());
+				isbn, book.getDescription(), book.getYearOfPublication());
 	}
 
 	// just an example of how a step looks that is different from another one, after the last parameter
@@ -54,7 +54,7 @@ public class Library {
 				.withTitle(title)
 				.build();
 		bookService.createBook(book.getTitle(), book.getAuthor(), book.getEdition(),
-				isbn, book.getYearOfPublication());
+				isbn, book.getDescription(), book.getYearOfPublication());
 	}
 
 	@Given("borrower $borrower has borrowed books $isbns")
@@ -71,6 +71,7 @@ public class Library {
 							book.getAuthor(),
 							book.getEdition(),
 							isbn,
+							book.getDescription(),
 							book.getYearOfPublication())
 					.orElseThrow(IllegalStateException::new);
 
