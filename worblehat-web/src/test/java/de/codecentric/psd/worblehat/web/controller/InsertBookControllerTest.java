@@ -95,6 +95,7 @@ public class InsertBookControllerTest {
         bookDataFormData.setAuthor(TEST_BOOK.getAuthor());
         bookDataFormData.setEdition(TEST_BOOK.getEdition());
         bookDataFormData.setIsbn(TEST_BOOK.getIsbn());
+        bookDataFormData.setDescription(TEST_BOOK.getDescription());
         bookDataFormData.setYearOfPublication(String.valueOf(TEST_BOOK.getYearOfPublication()));
     }
 }
