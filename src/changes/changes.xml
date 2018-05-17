@@ -34,5 +34,18 @@
 				Show book description in search dialog.
 			</action>
 		</release>
+
+		<release version="1.3.0" date="2018-05-17"
+			description="Sprint 3">
+			<action dev="Erste Reihe" type="update">
+				Trim inputs.
+			</action>
+			<action dev="Erste Reihe" type="update">
+				Enable ISBN 13.
+			</action>
+			<action dev="Erste Reihe" type="update">
+				New entries for new editions.
+			</action>
+		</release>
 	</body>
 </document>
