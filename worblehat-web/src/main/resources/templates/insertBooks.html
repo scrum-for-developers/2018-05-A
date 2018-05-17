@@ -18,6 +18,9 @@
 			Author:<input type="text" th:field="*{author}" />
 		<span class="error" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
 		<br />
+			Description:<input type="text" th:field="*{description}" />
+		<span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+		<br />
 			Year:<input type="text" th:field="*{yearOfPublication}" />
 		<span class="error" th:if="${#fields.hasErrors('yearOfPublication')}" th:errors="*{yearOfPublication}"></span>
 		<br />
