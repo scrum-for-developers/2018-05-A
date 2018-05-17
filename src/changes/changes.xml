@@ -24,5 +24,13 @@
 				Return all borrowed books by one member.
 			</action>
 		</release>
+
+		<release version="1.2.0" date="2018-05-17"
+			description="Sprint 2">
+			<action dev="betaworblers" type="update">
+				Show version on home page.
+				Show book description in search dialog.
+			</action>
+		</release>
 	</body>
 </document>
