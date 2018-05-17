@@ -21,7 +21,6 @@ public class Worblehat {
 		do {
 			line = scan.nextLine();
 		} while (!"stop".equals(line));
-		scan.close();
 		applicationContext.close();
 	}
 
