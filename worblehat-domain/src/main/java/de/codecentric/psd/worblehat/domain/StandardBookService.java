@@ -1,13 +1,14 @@
 package de.codecentric.psd.worblehat.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * The domain service class for book operations.
@@ -17,7 +18,7 @@ import java.util.Set;
 public class StandardBookService implements BookService {
 
 	public StandardBookService() {
-
+		// for JPA
 	}
 
 	@Autowired
@@ -67,19 +68,19 @@ public class StandardBookService implements BookService {
 
 	@Override
 	public Optional<Book> createBook(@Nonnull String title,
-									 @Nonnull String author,
-									 @Nonnull String edition,
-									 @Nonnull String isbn,
-									 String description,
-									 int yearOfPublication) {
+			@Nonnull String author,
+			@Nonnull String edition,
+			@Nonnull String isbn,
+			String description,
+			int yearOfPublication) {
 		Book book = new Book(title, author, edition, isbn, description, yearOfPublication);
 
 		Optional<Book> bookFromRepo = bookRepository.findTopByIsbn(isbn);
 
-        if (!bookFromRepo.isPresent() || book.isSameCopy(bookFromRepo.get())) {
-            return Optional.of(bookRepository.save(book));
-        } else
-            return Optional.empty();
+		if (!bookFromRepo.isPresent() || book.isSameCopy(bookFromRepo.get()))
+			return Optional.of(bookRepository.save(book));
+		else
+			return Optional.empty();
 	}
 
 	@Override
