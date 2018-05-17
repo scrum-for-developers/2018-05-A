@@ -43,13 +43,14 @@ public class BorrowBookController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("borrowFormData") @Valid BookBorrowFormData borrowFormData,
 			BindingResult result) {
+		String target = "borrow";
 		if (result.hasErrors()) {
-			return "borrow";
+			return target;
 		}
 		Set<Book> books = bookService.findBooksByIsbn(borrowFormData.getIsbn());
 		if(books.isEmpty()) {
 			result.rejectValue("isbn", "noBookExists");
-			return "borrow";
+			return target;
 		}
 		Optional<Borrowing> borrowing = bookService.borrowBook(borrowFormData.getIsbn(), borrowFormData.getEmail());
 
@@ -57,7 +58,7 @@ public class BorrowBookController {
 				.map(b -> "home")
 				.orElseGet( () -> {
 					result.rejectValue("isbn", "noBorrowableBooks");
-					return "borrow";
+					return target;
 				});
 	}
 
