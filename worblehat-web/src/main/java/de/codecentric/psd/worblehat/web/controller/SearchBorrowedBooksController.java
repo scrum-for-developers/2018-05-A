@@ -50,13 +50,10 @@ public class SearchBorrowedBooksController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String processSubmit(ModelMap modelMap, @ModelAttribute("searchBorrowedBooksFormData") @Valid SearchBorrowedBooksFormData searchBorrowedBooksFormData,
 			BindingResult result) {
-		String target = "borrow";
-		if (result.hasErrors()) {
-			return target;
-		} 
+		
 		List<Borrowing> borrowing = bookService.findBorrowedBooks(searchBorrowedBooksFormData.getEmail());
 		modelMap.addAttribute("borrowing", borrowing);
-		
+		if (searchBorrowedBooksFormData.getEmail().isEmpty()) return "searchBorrowedBooks";
 	    return "listBorrowedBooks";	
 		
 	}
