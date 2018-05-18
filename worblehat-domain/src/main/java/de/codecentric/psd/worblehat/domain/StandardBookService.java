@@ -38,7 +38,17 @@ public class StandardBookService implements BookService {
 		for (Borrowing borrowing : borrowingsByUser) {
 			borrowingRepository.delete(borrowing);
 		}
+		
 	}
+	
+	@Override
+	public List<Borrowing> findBorrowedBooks(String borrowerEmailAddress) {
+		List<Borrowing> borrowingsByUser = borrowingRepository
+				.findBorrowingsByBorrower(borrowerEmailAddress);
+		return borrowingsByUser;
+		
+	}
+	
 
 	@Override
 	public Optional<Borrowing> borrowBook(String isbn, String borrower) {

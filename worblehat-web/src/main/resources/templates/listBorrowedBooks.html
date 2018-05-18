@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Show all Books</title>
+</head>
+<body>
+	<table class="bookList" border="1">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Year</th>
+			<th>Edition</th>
+			<th>ISBN</th>
+			<th>Description</th>
+			<th>Borrower</th>
+			<th>Borrow Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="borrowing : ${borrowing}">
+			<td th:text="${borrowing.borrowedBook.title}">Harry Potter</td>
+			<td th:text="${borrowing.borrowedBook.author}">J.K. Rowling</td>
+			<td th:text="${borrowing.borrowedBook.yearOfPublication}">2002</td>
+			<td th:text="${borrowing.borrowedBook.edition}">1st</td>
+			<td th:text="${borrowing.borrowedBook.isbn}">123456</td>
+			<td th:text="${borrowing.borrowedBook.description}">Description</td>
+			<td th:text="${borrowing.borrowerEmailAddress}">someone@codecentric.de</td>
+			<td th:text="${borrowing.borrowDate}">1.1.1</td>
+		</tr>
+	</tbody>
+	</table>
+	<hr />
+	<a th:href="@{/}">Back to Home</a>
+	
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
