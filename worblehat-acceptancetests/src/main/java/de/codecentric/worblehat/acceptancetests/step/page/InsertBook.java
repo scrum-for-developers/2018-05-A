@@ -3,17 +3,17 @@ package de.codecentric.worblehat.acceptancetests.step.page;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertThat;
 
-import de.codecentric.worblehat.acceptancetests.adapter.wrapper.Page;
-import de.codecentric.worblehat.acceptancetests.adapter.wrapper.PageElement;
-import de.codecentric.worblehat.acceptancetests.step.StoryContext;
+import java.util.List;
+
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-
-import de.codecentric.worblehat.acceptancetests.adapter.SeleniumAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import de.codecentric.worblehat.acceptancetests.adapter.SeleniumAdapter;
+import de.codecentric.worblehat.acceptancetests.adapter.wrapper.Page;
+import de.codecentric.worblehat.acceptancetests.adapter.wrapper.PageElement;
+import de.codecentric.worblehat.acceptancetests.step.StoryContext;
 
 @Component
 public class InsertBook {
@@ -40,10 +40,10 @@ public class InsertBook {
 
 	@When("a librarian adds a book with title $title, author $author, edition $edition, year $year and isbn $isbn")
 	public void whenABookWithISBNisbnIsAdded(String title,
-											 String author,
-											 String edition,
-											 String year,
-											 String isbn) {
+			String author,
+			String edition,
+			String year,
+			String isbn) {
 		seleniumAdapter.gotoPage(Page.INSERTBOOKS);
 		fillInsertBookForm(title, author, edition, isbn, year);
 		seleniumAdapter.clickOnPageElement(PageElement.ADDBOOKBUTTON);
@@ -61,16 +61,17 @@ public class InsertBook {
 	}
 
 	// *****************
-	// *** U T I L ***** 
+	// *** U T I L *****
 	// *****************
 
 
 	private void fillInsertBookForm(String title, String author, String edition, String isbn,
-			 String year) {
+			String year) {
 		seleniumAdapter.typeIntoField("title", title);
 		seleniumAdapter.typeIntoField("edition", edition);
 		seleniumAdapter.typeIntoField("isbn", isbn);
 		seleniumAdapter.typeIntoField("author", author);
+		seleniumAdapter.typeIntoField("description", "description_value");
 		seleniumAdapter.typeIntoField("yearOfPublication", year);
 	}
 
