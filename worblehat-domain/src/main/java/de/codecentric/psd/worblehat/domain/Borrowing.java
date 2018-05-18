@@ -1,10 +1,17 @@
 package de.codecentric.psd.worblehat.domain;
 
-import org.joda.time.DateTime;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.joda.time.DateTime;
 
 /**
  * Borrowing Entity
@@ -37,10 +44,10 @@ public class Borrowing implements Serializable {
 	 * The borrowers e-mail Address
 	 * @param borrowDate
 	 * The borrow date
-     */
+	 */
 	public Borrowing(Book book, String borrowerEmailAddress, DateTime borrowDate) {
 		super();
-		this.borrowedBook = book;
+		borrowedBook = book;
 		this.borrowerEmailAddress = borrowerEmailAddress;
 		this.borrowDate = borrowDate.toDate();
 	}
@@ -55,5 +62,13 @@ public class Borrowing implements Serializable {
 
 	public Book getBorrowedBook() {
 		return borrowedBook;
+	}
+
+	public Date getBorrowDate() {
+		return borrowDate;
+	}
+
+	public void setBorrowDate(Date borrowDate) {
+		this.borrowDate = borrowDate;
 	}
 }
