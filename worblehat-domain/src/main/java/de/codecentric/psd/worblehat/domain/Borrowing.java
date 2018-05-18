@@ -30,6 +30,10 @@ public class Borrowing implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date borrowDate;
 
+	public Date getBorrowDate() {
+		return borrowDate;
+	}
+
 	@OneToOne()
 	private Book borrowedBook;
 
