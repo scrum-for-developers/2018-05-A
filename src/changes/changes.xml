@@ -47,5 +47,15 @@
 				New entries for new editions.
 			</action>
 		</release>
+		
+		<release version="1.4.0" date="2018-05-18"
+			description="Sprint 4">
+			<action dev="Erste Reihe" type="update">
+				List of borrowed books for a given E-Mail address (sorted by return date).
+			</action>
+			<action dev="Erste Reihe" type="update">
+				Possibility to return single books (via the new borrowed-list).
+			</action>
+		</release>
 	</body>
 </document>
